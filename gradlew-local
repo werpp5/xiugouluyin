@@ -1,0 +1,5 @@
+#!/bin/bash
+# 用工作区内的 Gradle 8.7 + JDK21 编译，绕过被墙的 wrapper 下载
+cd "$(dirname "$0")"
+export JAVA_HOME="$(/usr/libexec/java_home -v 21 2>/dev/null || echo "$JAVA_HOME")"
+exec ../tools/gradle-8.7/bin/gradle "$@"
