@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#FF6A00</item>
+        <item name="colorPrimaryDark">#E85E00</item>
+        <item name="colorAccent">#FF6A00</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="alertDialogTheme">@style/RoundedDialogTheme</item>
+    </style>
+
+    <!-- 所有弹窗外框 8dp 圆角；只改窗口背景，不动内部按钮 -->
+    <style name="RoundedDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/dialog_rounded</item>
+        <item name="android:background">@drawable/dialog_rounded</item>
+    </style>
+</resources>

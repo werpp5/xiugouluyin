@@ -1,0 +1,65 @@
+{
+  "id": "c1",
+  "name": "搜狗录音笔 C1 / C18D",
+  "namePrefixes": ["C1", "C18", "Sogou", "搜狗"],
+  "uuids": {
+    "serviceMain": "00001910-0000-1000-8000-00805f9b34fb",
+    "write": "00002bb1-0000-1000-8000-00805f9b34fb",
+    "indicate": "00002bb0-0000-1000-8000-00805f9b34fb",
+    "serviceBattery": "0000180f-0000-1000-8000-00805f9b34fb",
+    "battery": "00002a19-0000-1000-8000-00805f9b34fb",
+    "serviceData": "0000cc68-0000-1000-8000-00805f9b34fb",
+    "data": "0000b001-0000-1000-8000-00805f9b34fb",
+    "cccd": "00002902-0000-1000-8000-00805f9b34fb"
+  },
+  "commands": {
+    "capacities": 14,
+    "downloadFile": 8,
+    "downloadStop": 2,
+    "getFiles": 7,
+    "getSessions": 6,
+    "getSSN": 17,
+    "finishFile": 12,
+    "startRecord": 10,
+    "pauseRecord": 3,
+    "stopRecord": 2,
+    "queryParts": 7,
+    "getUserSet": 26,
+    "setLedHide": 27,
+    "getFreeSize": 28
+  },
+  "responses": {
+    "capacitiesReq": 14,
+    "sessionsConfirm": 9,
+    "filesConfirm": 10,
+    "fileHeader": 11,
+    "fileTail": 12,
+    "userSet": 24,
+    "freeSize": 25
+  },
+  "capacitiesTag": "11d4b8aa4f",
+  "parse": {
+    "sessionStrides": [12, 8, 4],
+    "sessionLimit12": 70,
+    "sessionLimit8": 74,
+    "sessionLimit4": 14,
+    "fileStep": 6,
+    "fileLimit": 14,
+    "frameIndexBytes": 3,
+    "frameLenOffset": 3
+  },
+  "audio": {
+    "celtMode": 2,
+    "celtModeFallback": 1,
+    "sampleRate": 16000,
+    "framePairBytes": 160,
+    "minMtu": 168
+  },
+  "model": {
+    "dir": "sensevoice",
+    "file": "model.int8.onnx",
+    "tokens": "tokens.txt",
+    "minBytes": 200000000,
+    "version": "int8-v1"
+  }
+}

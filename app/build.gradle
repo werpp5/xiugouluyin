@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.c1local.app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.c1local.app.official"   // 与稳定版共存，互不影响文稿/缓存
+        minSdk 26
+        targetSdk 35
+        versionCode 3
+        versionName "1.2"
+        // CELT解码库只有armeabi-v7a，必须让整个App跑在32位模式，
+        // 否则64位进程无法加载32位so。sherpa-onnx也提供armeabi-v7a版本。
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    // 226MB模型 + 50MB AAR，打包会警告，关掉lint的增量检查加速
+    lintOptions {
+        abortOnError false
+    }
+    packagingOptions {
+        // 解压 native lib，避免Android 6+直接从apk加载未压缩so失败
+        dex { useLegacyPackaging true }
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+}
+
+dependencies {
+    // sherpa-onnx AAR（本地文件）
+    implementation(name: 'sherpa-onnx-2.0.3', ext: 'aar')
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+}
